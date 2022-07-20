@@ -11,14 +11,15 @@
         android:theme="@style/Theme.1DeepLink">
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
-            <intent-filter >
+            <intent-filter android:autoVerify="true">
                 <!--                Thiết lập để xem các hoạt động-->
                 <action android:name="android.intent.action.VIEW"/>
                 <!--                Thiết lập cho phép mở liên kết từ trình duyệt-->
