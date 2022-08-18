@@ -14,18 +14,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        showDeepLink();
+
     }
 
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        setIntent(intent);
-        Log.e("HiepPD","onNewIntent");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
+    private void showDeepLink(){
         // Lấy ra đường dẫn uri mà khi click từ ngoài app
         Intent intent = getIntent();
         Uri uri = intent.getData();
@@ -42,4 +35,15 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        showDeepLink();
+        Log.e("HiepPD","onNewIntent");
+
+    }
+
+
 }
